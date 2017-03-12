@@ -7,6 +7,7 @@ Due to how Mix dependencies are installed, a `docker-user` is created when build
 ## Usage
 ```console
 $ docker pull zweicoder/phoenix-docker
+test
 ```
 
 ```console
