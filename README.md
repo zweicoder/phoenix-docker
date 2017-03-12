@@ -6,18 +6,16 @@ Due to how Mix dependencies are installed, a `docker-user` is created when build
 
 ## Usage
 ```bash
+# Pull the Docker image
 docker pull zweicoder/phoenix-docker
-```
 
-```bash
 # Copy / Download up.sh to your project directory
 # Make sure the file is executable
 chmod u+x up.sh
 
 # Mount current directory into Docker container
 ./up.sh
+
+# Run mix / phoenix commands as per normal
+mix phoenix.new hello_phoenix
 ```
-
-copy/download `up.sh` to your project directory and `chmod u+x up.sh`
-
-Running `up.sh` mounts the current directory and opens an interactive console to the Docker container
