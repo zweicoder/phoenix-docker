@@ -19,3 +19,9 @@ chmod u+x up.sh
 # Run mix / phoenix commands as per normal
 mix phoenix.new hello_phoenix
 ```
+
+## FAQ
+
+#### Why not just use the Docker -u flag?
+- The Mix dependencies will either have to be installed in `root/.mix` or `/home/<user>/.mix`, which causes issues unless we `chown` the directory it was installed at.
+- Also, when using something like `docker run -u "$(id -u):$(id -g)"` the UID and GID will probably not be present in the container's `/etc/passwd` file. Some applications will fail to start because of this. See [this post](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
