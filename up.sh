@@ -15,6 +15,7 @@ WORK_DIR="$HOME_DIR/$(basename $PWD)"
 PARAMS="$PARAMS -it --rm"
 PARAMS="$PARAMS -v $PWD:$WORK_DIR"
 PARAMS="$PARAMS -w $WORK_DIR"
+PARAMS="$PARAMS --link some-postgres:postgres"
 
 USER_ID=$(id -u)
 GROUP_ID=$(id -g)
@@ -28,7 +29,8 @@ run_docker()
     chown -R $DOCKER_USER:$DOCKER_GROUP $HOME_DIR '&&' \
     sudo -u $DOCKER_USER HOME=$HOME_DIR $COMMAND
 }
-
+# todo somehow use compose?
+# docker run --name some-postgres -d postgres
 if [ -z "$DOCKER_HOST" ]; then
     docker run $PARAMS $DOCKER_IMAGE /bin/bash -c "$(run_docker) $*"
 else
