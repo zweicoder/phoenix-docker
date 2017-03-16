@@ -1,4 +1,3 @@
-#FROM zweicoder/phoenix-docker-base
 FROM elixir:latest
 
 MAINTAINER Chong Zhi Wei <zweicoder@gmail.com>

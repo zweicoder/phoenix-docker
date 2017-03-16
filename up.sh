@@ -25,7 +25,7 @@ run_docker()
   echo \
     groupadd -f -g $GROUP_ID $DOCKER_GROUP '&&' \
     useradd -u $USER_ID -g $DOCKER_GROUP $DOCKER_USER '&&' \
-    chown $DOCKER_USER:$DOCKER_GROUP $HOME_DIR '&&' \
+    chown -R $DOCKER_USER:$DOCKER_GROUP $HOME_DIR '&&' \
     sudo -u $DOCKER_USER HOME=$HOME_DIR $COMMAND
 }
 
